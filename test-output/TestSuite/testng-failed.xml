@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" name="Failed suite [TestSuite]" guice-stage="DEVELOPMENT">
+  <test name="TestMyPage(failed)">
+    <classes>
+      <class name="com.thefork.tests.testpage">
+        <methods>
+          <include name="Firsttest"/>
+          <include name="InitReport"/>
+          <include name="Secondtest"/>
+          <include name="Init"/>
+          <include name="Setup"/>
+          <include name="Closeapplication"/>
+        </methods>
+      </class> <!-- com.thefork.tests.testpage -->
+    </classes>
+  </test> <!-- TestMyPage(failed) -->
+</suite> <!-- Failed suite [TestSuite] -->
