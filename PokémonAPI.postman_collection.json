@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "5d6b6084-ea32-43c3-88d7-fd9041e31059",
+		"name": "PokémonAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21530124"
+	},
+	"item": [
+		{
+			"name": "GetNormalPokemons",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let ListOfPokemon = [];\r",
+							"var OneOftypesIsNormal=false;\r",
+							"\r",
+							"pm.test(\"Extract list of pokemon with normal type\", function () {\r",
+							"   const jsonData = pm.response.json()\r",
+							"     \r",
+							"   for(const iterpokemon of jsonData.results)\r",
+							"     {          //For Each pokem ,send a new request to give more informations\r",
+							"                 pm.sendRequest(iterpokemon.url, function (err, response) {\r",
+							"                    //list of types \r",
+							"                    for(const itertypes of response.json().types)\r",
+							"                        { if(itertypes.type.name.localeCompare(\"normal\")==0)\r",
+							"                             OneOftypesIsNormal=true;\r",
+							"                        } \r",
+							"                        // if one of their types is normal ==> OneOftypesIsNormal=true\r",
+							"                        if(OneOftypesIsNormal==true)\r",
+							"                             ListOfPokemon.push(iterpokemon.name);\r",
+							"                       //reset flag for next iteration     \r",
+							"                       OneOftypesIsNormal=false;\r",
+							"                       //Display list of pokemons\r",
+							"                       console.log(\"list of pokemons that are normal type or that one of their types is normal type: \"+ListOfPokemon);\r",
+							"                       \r",
+							"                      \r",
+							"                }); \r",
+							"                  \r",
+							"    }  \r",
+							"   \r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://pokeapi.co/api/v2/pokemon?limit=30",
+					"protocol": "https",
+					"host": [
+						"pokeapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"v2",
+						"pokemon"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
