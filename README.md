@@ -22,9 +22,15 @@ Run the TestNG file : TheFork\Scenarios\LoginMOBILETestNG.xml with mvn clean tes
 
 
 
+1.3 Open the extent report generated :  TheFork\testmobile.html 
+Report :
+
+![image](https://user-images.githubusercontent.com/6186417/174911887-db383b10-4d5c-4fcb-86f3-af0b2c610fa0.png)
+
+find the attached video :  https://github.com/harakamohammed/TheFork/blob/main/APPMOBILE%20BROWSERSTACK%20VIDEO.mp4
 
 2-Web Application :
-2.2 Open the extent report generated :  TheFork\testmobile.html 
+
 Run the TestNG file : TheFork\Scenarios\LoginWEBTestNG.xml with mvn clean test -DsuiteXmlFile=file xml 
 
 !!!!! But We have a problem with captcha , we cannot run our script!!!!
